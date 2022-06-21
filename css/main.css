@@ -15,11 +15,26 @@ body {
     color: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 p {
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+p {
     margin: 0;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 /* Base */
+
+.no-scroll {
+    overflow-y: hidden;
+}
 
 .container-wide {
     max-width: 1790px;
@@ -139,6 +154,95 @@ h1, h2, h3, h4, h5, h6 p {
     background-size: contain;
 }
 
+.nav__button_mobile {
+    position: relative;
+    z-index: 9;
+    display: none;
+    height: 25px;
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    background: none;
+}
+
+.nav__button_mobile:focus,
+.nav__button_mobile:active {
+    outline: none;
+}
+
+.nav__button_icon {
+    position: relative;
+    display: block;
+    width: 42px;
+    height: 5px;
+    background-color: #fff;
+    border: none;
+}
+
+.nav__button_icon::before {
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    content: "";
+    display: block;
+    width: 42px;
+    height: 5px;
+    background-color: #fff;
+}
+
+.nav__button_icon::after {
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+    content: "";
+    display: block;
+    width: 42px;
+    height: 5px;
+    background-color: #fff;
+}
+
+.nav__button_close .nav__button_icon {
+    background-color: transparent;
+}
+
+.nav__button_close .nav__button_icon:before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav__button_close .nav__button_icon:after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.nav__mobile {
+    position: fixed;
+    z-index: 8;
+    top: 0px;
+    right: 0px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    height: 100%;
+    padding: 70px 70px 50px 30px;
+    background-color: rgba(11, 29, 38, 0.8);
+}
+
+.nav__mobile .nav,
+.nav__mobile .account {
+    display: block;
+}
+
+.nav__mobile .nav ul {
+    flex-direction: column;
+}
+
+.nav__mobile .nav ul li {
+    margin: 0px;
+    margin-bottom: 25px;
+}
+
 /* Hero */
 
 .hero {
@@ -220,6 +324,7 @@ h1, h2, h3, h4, h5, h6 p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .article:nth-child(even) {
@@ -230,6 +335,7 @@ h1, h2, h3, h4, h5, h6 p {
     position: relative;
     padding-left: 150px;
     max-width: 782px;
+    margin-right: 20px;
 }
 
 .article-text::before {
@@ -318,12 +424,18 @@ h1, h2, h3, h4, h5, h6 p {
 
 .article-img img {
     display: block;
+    max-width: 100%;
 }
 
 /* Footer */
 
 .footer {
     padding-bottom: 120px;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-copyright {
